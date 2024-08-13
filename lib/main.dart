@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final primaryColor = context.resources.color.primaryColor;
+  
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',

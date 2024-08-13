@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itune/res/AppContextExtension.dart';
 import 'package:itune/view/search/widgets/paramter_selector.dart';
-
-import '../../res/Resources.dart';
 import '../shared/text_view.dart';
 import 'widgets/search_field.dart';
 import 'widgets/submit_button.dart';

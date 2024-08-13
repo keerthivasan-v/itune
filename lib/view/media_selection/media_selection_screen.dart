@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:itune/res/AppContextExtension.dart';
 import 'package:itune/res/utils.dart';
+import 'package:itune/view/search_result/search_result_screen.dart';
 import 'package:itune/view/shared/text_view.dart';
 
 import '../../view_model/media_selection_view_model.dart';
@@ -45,6 +46,7 @@ class MediaSelectionScreen extends ConsumerWidget {
               trailing: isSelected ? const Icon(Icons.check) : null,
               onTap: () {
                 mediaViewModelNotifier.toggleSelection(mediaType);
+                Navigator.pop(context);
               },
             );
           },
