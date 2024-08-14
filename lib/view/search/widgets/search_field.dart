@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:itune/res/AppContextExtension.dart';
-import 'package:itune/view/search_result/search_result_screen.dart';
+import 'package:itune/view/home_page/home_page.dart';
 import 'package:itune/view_model/search_view_model.dart';
 
 import '../../../view_model/query_view_model.dart';
@@ -20,7 +20,7 @@ class _SearchFieldState extends ConsumerState<SearchField> {
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController();
+    _controller = TextEditingController(text: "video");
   }
 
   @override
@@ -48,22 +48,25 @@ class _SearchFieldState extends ConsumerState<SearchField> {
           hintStyle: TextStyle(
             color: context.resources.color.secondaryColor,
           ),
+          suffixIcon: IconButton(
+              onPressed: () {
+                searchViewModel.fetchMedia(_controller.text).then(
+                  (value) {
+                    Navigator.of(context).pushNamed(HomePage.id);
+                  },
+                );
+              },
+              icon: const Icon(Icons.search)),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
         ),
         textInputAction: TextInputAction.search,
-        validator: (value) {
-          if (value == null || value.trim().isEmpty) {
-            return 'Please enter a search query';
-          }
-          return null;
-        },
         onFieldSubmitted: (query) {
           if (_formKey.currentState?.validate() ?? false) {
             searchViewModel.fetchMedia(query).then(
               (value) {
-                Navigator.of(context).pushNamed(SearchResultScreen.id);
+                Navigator.of(context).pushNamed(HomePage.id);
               },
             );
           }

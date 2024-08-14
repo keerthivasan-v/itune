@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:itune/res/AppContextExtension.dart';
 
-class MyTextView extends StatelessWidget {
+class TextWidget extends StatelessWidget {
   final String label;
   final Color color;
   final double fontSize;
   final FontWeight fontWeight;
 
-  const MyTextView(
+  const TextWidget(
       {super.key,
       this.label = "",
       this.color = Colors.white,

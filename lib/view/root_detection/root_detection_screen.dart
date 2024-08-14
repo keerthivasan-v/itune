@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:itune/res/AppContextExtension.dart';
 import 'package:itune/view/search/startsearch_page.dart';
-import 'package:itune/view/shared/text_view.dart';
+import 'package:itune/view/common/text_view.dart';
 import 'package:itune/view_model/root_detection_view_model.dart';
 
 class RootScreen extends ConsumerWidget {
@@ -17,7 +17,7 @@ class RootScreen extends ConsumerWidget {
       backgroundColor: resources.color.primaryColor,
       appBar: AppBar(
           backgroundColor: resources.color.primaryColor,
-          title: MyTextView(label: 'Root checker example app')),
+          title: TextWidget(label: 'Root checker example app')),
       body: Center(
         child: rootState.rootedCheck
             ? _buildRootedContent(context)
@@ -32,12 +32,12 @@ class RootScreen extends ConsumerWidget {
       children: [
         const Icon(Icons.warning, size: 80, color: Colors.red),
         const SizedBox(height: 20),
-        const MyTextView(
+        const TextWidget(
             label: 'Access Denied - Root detected',
             fontWeight: FontWeight.bold,
-            color: Colors.red),
+            color: Colors.orange),
         const SizedBox(height: 10),
-        MyTextView(
+        TextWidget(
           label: 'This cannot be used on rooted devices.',
           fontWeight: FontWeight.bold,
           fontSize: context.resources.dimension.smallText,

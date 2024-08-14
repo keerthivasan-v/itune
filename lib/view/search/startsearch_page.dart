@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itune/res/AppContextExtension.dart';
-import 'package:itune/view/search/widgets/paramter_selector.dart';
-import '../shared/text_view.dart';
+import '../common/text_view.dart';
 import 'widgets/search_field.dart';
-import 'widgets/submit_button.dart';
 
 class StartSearchPage extends StatelessWidget {
   static const String id = "StartSearchPage";
@@ -16,55 +14,57 @@ class StartSearchPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-            height: resources.screenHeight,
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Container(
+                height: resources.screenHeight,
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(
-                      Icons.apple,
-                      color: resources.color.secondaryColor,
-                      size: resources.dimension.iconMediumSize,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.apple,
+                          color: resources.color.secondaryColor,
+                          size: resources.dimension.iconMediumSize,
+                        ),
+                        const SizedBox(width: 10),
+                        const TextWidget(
+                          label: "iTunes",
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ],
                     ),
-                    const MyTextView(
-                      label: "iTunes",
+                    const SizedBox(height: 50),
+                    TextWidget(
+                      label:
+                          "Explore a wide variety of content from the iTunes store including iBooks, movies, podcasts, music, music videos, and audiobooks.",
+                      fontSize: resources.dimension.mediumText,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white70,
                     ),
+                    const SizedBox(height: 40),
+                    const AnimatedOpacity(
+                      opacity: 1.0,
+                      duration: Duration(seconds: 1),
+                      child: SearchField(),
+                    ),
+                    const SizedBox(height: 40),
                   ],
                 ),
-                const SizedBox(height: 60),
-                MyTextView(
-                  label:
-                      "Search for a variety of content from the iTunes store including iBooks, movies, podcasts, music, music videos, and audiobooks.",
-                  fontSize: resources.dimension.mediumText,
-                  fontWeight: FontWeight.bold,
-                ),
-                const SizedBox(height: 40),
-                const SearchField(),
-                const SizedBox(height: 40),
-                MyTextView(
-                  label: "Specify the parameter for the content to be searched",
-                  fontSize: resources.dimension.smallText,
-                  fontWeight: FontWeight.bold,
-                ),
-                const SizedBox(height: 40),
-                const ParameterSelector(),
-                const SizedBox(height: 40),
-                SubmitButton(resources: resources),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
   }
-
-
 }

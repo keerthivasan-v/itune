@@ -16,7 +16,6 @@ class RootDetectionService {
         jailbreak = (await RootCheckerPlus.isJailbreak()) ?? false;
       }
     } on PlatformException {
-      // Handle the exception or set default values
       rootedCheck = false;
       devMode = false;
       jailbreak = false;

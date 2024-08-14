@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter/material.dart';
 import 'package:itune/model/app_exception.dart';
 import 'package:itune/model/service/base_service.dart';
 import 'package:itune/model/service/http_client.dart';
@@ -13,7 +12,7 @@ class SearchService extends BaseService {
     dynamic responseJson;
     try {
       final request = await _client.getUrl(Uri.parse(mediaBaseUrl + url));
-      final response = await request.close(); // This returns HttpClientResponse
+      final response = await request.close(); 
       responseJson = await _parseResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet Connection');

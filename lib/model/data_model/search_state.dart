@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'media_model/media_model.dart';
 
-// Define a state class that holds both media list
 class SearchState {
   final AsyncValue<List<Result>> mediaList;
   final bool loading;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itune/view/shared/text_view.dart';
+import 'package:itune/view/common/text_view.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPlayerWidget extends StatefulWidget {
@@ -63,9 +63,9 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.error, color: Colors.red, size: 50),
+            Icon(Icons.error, color: Colors.orange, size: 50),
             SizedBox(height: 10),
-            MyTextView(label: 'Failed to load video', color: Colors.red),
+            TextWidget(label: 'Failed to load video', color: Colors.orange),
           ],
         ),
       );
